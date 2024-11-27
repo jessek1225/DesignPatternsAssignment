@@ -1,3 +1,5 @@
+import javax.swing.SwingUtilities;
+
 public class Main {
     public static void main(String[] args) {
         // Test Text Formatter
@@ -33,5 +35,11 @@ public class Main {
         notifier.addChannel(new SlackNotification());
 
         notifier.notify("Important message!");
+
+        System.out.println("\nLaunching Text Formatter UI...");
+        SwingUtilities.invokeLater(() -> {
+            TextFormatterUI ui = new TextFormatterUI();
+            ui.show();
+        });
     }
 }
