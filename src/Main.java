@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
         // Test Text Formatter
+        System.out.println("Testing Text Formatter:");
         DocumentEditor editor = new DocumentEditor();
         editor.setText("Hello World");
 
-        // Test each formatter
         editor.setFormatter(new PlainTextFormatter());
         System.out.println("Plain: " + editor.getFormattedText());
 
@@ -23,5 +23,15 @@ public class Main {
 
         System.out.println("\nLog History:");
         logger.getHistory();
+
+        // Test Notification System
+        System.out.println("\nTesting Notification System:");
+        NotificationService notifier = new NotificationService();
+
+        notifier.addChannel(new EmailNotification());
+        notifier.addChannel(new SMSNotification());
+        notifier.addChannel(new SlackNotification());
+
+        notifier.notify("Important message!");
     }
 }
