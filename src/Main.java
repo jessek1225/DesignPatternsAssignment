@@ -1,7 +1,6 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        // Test Text Formatter
         DocumentEditor editor = new DocumentEditor();
         editor.setText("Hello World");
 
@@ -14,5 +13,15 @@ public class Main {
 
         editor.setFormatter(new MarkdownFormatter());
         System.out.println("Markdown: " + editor.getFormattedText());
+
+        // Test Event Logger
+        System.out.println("\nTesting Event Logger:");
+        EventLogger logger = EventLogger.getInstance();
+        logger.log("INFO", "Application started");
+        logger.log("DEBUG", "Processing data");
+        logger.log("ERROR", "Failed to connect");
+
+        System.out.println("\nLog History:");
+        logger.getHistory();
     }
 }
